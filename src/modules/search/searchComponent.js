@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Divider, Grid, Header, Image, Button, Checkbox, Form, Input, Radio, Select, TextArea, Segment, Dropdown } from 'semantic-ui-react'
+import Zoom from 'react-reveal/Zoom';
 
 const Planet = props => (
     <li className="results__item">
@@ -64,11 +65,44 @@ export class Search extends React.Component {
     }
 
     renderList() {
+
         return this.props.searchedRes.map((item, key) => {
+            let fontSize = 12;
+            
+            if(item.population === "unknown") {
+                fontSize = 10;
+            } else { 
+                switch(item.population.length) {
+                    case 3: 
+                        fontSize = 14;
+                    break;
+                    case 4: 
+                        fontSize = 16;
+                    break;
+                    case 5: 
+                        fontSize = 18;
+                    break;
+                    case 6: 
+                        fontSize = 20;
+                    break;
+                    case 7: 
+                        fontSize = 22;
+                    break;
+                    case 8: 
+                        fontSize = 24;
+                    break;
+                    case 9: 
+                        fontSize = 26;
+                    break;
+                    default: 
+                    break;
+                }
+            }
             return (
-                <li item={item} style={{ fontSize: 18 }} key={key} onClick={() => this.showDetails(item)} >{item.name}</li>)
-        }
-        )
+                <li item={item} style={{ fontSize, padding: 15 }} key={key} onClick={() => this.showDetails(item)}>
+                    <Zoom left>{item.name}</Zoom>
+                </li>)
+        })
     }
 
     showDetails(item) {
