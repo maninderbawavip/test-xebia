@@ -1,7 +1,7 @@
 {
   "name": "test-xebia",
   "version": "0.1.0",
-  "homepage": "http://maninderbawavip.github.io/test-xebia",
+  "homepage": "https://maninderbawavip.github.io/test-xebia",
   "dependencies": {
     "axios": "^0.18.0",
     "history": "^4.7.2",
